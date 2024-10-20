@@ -38,6 +38,32 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+function openEditModal(id) {
+    $.ajax({
+        url: 'handler->getPrijava.php',  // URL za dobijanje prijave
+        method: 'GET',
+        data: { id: id },
+        success: function(response) {
+            var prijava = JSON.parse(response);
+            $('#id').val(prijava.id);
+            $('#predmet').val(prijava.predmet);
+            $('#katedra').val(prijava.katedra);
+            $('#sala').val(prijava.sala);
+            $('#datum').val(prijava.datum);
+            $('#editModal').modal('show');
+        },
+        error: function() {
+            alert('Greška prilikom preuzimanja podataka.');
+        }
+    });
+}
+</script>
+
+
 <body>
     <div class="login-form">
         <div class="main-div card shadow-lg p-4">

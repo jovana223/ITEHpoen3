@@ -3,6 +3,9 @@
     require "model/prijava.php";
     require "handler/delete.php";
     require "handler/add.php";
+    require "handler/getById.php";
+    require "handler/update.php";
+    require "handler/getPrijava.php";
 
     // echo "obrada..";
 
